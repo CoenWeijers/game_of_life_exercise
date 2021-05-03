@@ -23,11 +23,16 @@ CELL_HEIGHT = 25
 
 
 def create_row_zeros(length):
+    lege_lijst = []
+
+    for i in range(length):
+        lege_lijst.append(0)
+
     """Create a list of zeros of the given length
 
     length: the number of zeros in the list
     """
-    return None
+    return lege_lijst
 
 
 def create_empty_grid(width, height):
