@@ -36,6 +36,13 @@ def create_row_zeros(length):
 
 
 def create_empty_grid(width, height):
+    lege_lijst = []
+
+    for y in range(height):
+        lege_lijst.append(create_row_zeros(width))
+
+
+
     """Create an empty grid of size width x height
 
     All cells are 0 indicating the all cells are dead.
@@ -43,7 +50,7 @@ def create_empty_grid(width, height):
     width: the width of the grid in cells
     height: the height of the grid in cells
     """
-    return None
+    return lege_lijst
 
 
 def get_left(grid, x, y):
@@ -55,8 +62,11 @@ def get_left(grid, x, y):
 
     If the cell is on the left border, return 0.
     """
-    return None
+    if  x == 0:
+         return 0
+    else: result = grid[y][x-1]
 
+    return result
 
 def get_right(grid, width, x, y):
     """Return the value on the right of the cell.
@@ -68,7 +78,11 @@ def get_right(grid, width, x, y):
 
     If the cell is on the right border, return 0.
     """
-    return None
+    if x==width-1:
+        return 0
+    else: result = grid[y][x+1]
+
+    return result
 
 
 def get_top(grid, x, y):
@@ -80,7 +94,12 @@ def get_top(grid, x, y):
 
     If the cell is on the top row, return 0.
     """
-    return None
+    if y==0:
+        return 0
+
+
+    result = grid[y-1][x]
+    return result
 
 
 def get_bottom(grid, height, x, y):
@@ -93,7 +112,12 @@ def get_bottom(grid, height, x, y):
 
     If the cell is on the bottom row, return 0.
     """
-    return None
+    if y==height-1:
+        return 0
+    else:
+        result = grid[y+1][x]
+        return result
+
 
 
 def get_topleft(grid, x, y):
@@ -106,7 +130,11 @@ def get_topleft(grid, x, y):
     If the cell is on the top row, return 0.
     If the cell is on the left column, return 0.
     """
-    return None
+    if x ==0 :
+        return 0
+    else:
+        result = grid[y - 1][x-1]
+        return result
 
 
 def get_topright(grid, width, x, y):
@@ -120,7 +148,11 @@ def get_topright(grid, width, x, y):
     If the cell is on the top row, return 0.
     If the cell is on the last column , return 0.
     """
-    return None
+    if x == width-1:
+        return 0
+    else:
+        result = grid[y - 1][x + 1]
+        return result
 
 
 def get_bottomleft(grid, height, x, y):
@@ -134,7 +166,11 @@ def get_bottomleft(grid, height, x, y):
     If the cell is on the last row, return 0.
     If the cell is on the first column , return 0.
     """
-    return None
+    if y == height - 1:
+        return 0
+    else:
+        result = grid[y + 1][x - 1]
+        return result
 
 
 def get_bottomright(grid, width, height, x, y):
@@ -149,7 +185,11 @@ def get_bottomright(grid, width, height, x, y):
     If the cell is on the last row, return 0.
     If the cell is on the last column , return 0.
     """
-    return None
+    if y == height - 1:
+        return 0
+    else:
+        result = grid[y + 1][x + 1]
+        return result
 
 
 def get_neighbours(grid, width, height, x, y):
